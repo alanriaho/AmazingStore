@@ -7,7 +7,7 @@
 	box-shadow: 1px 1px 0px #ccc;
 	box-sizing: border-box;
 	font-size: 0.9rem;
-	span.delete {
+	span.remove {
 		align-self: flex-end;
 		font-size: 0.8rem;
 		color: #ffffff;
@@ -15,7 +15,7 @@
 		padding: 2px;
 		cursor: pointer;
 	}
-	span.delete:hover {
+	span.remove:hover {
 		font-weight: bold;
 	}
 	> div {
@@ -27,7 +27,11 @@
 			font-size: 1rem;
 		}
 		.quantity-controller {
+			display: flex;
+			flex-direction: row;
 			align-self: center;
+			width: 90px;
+			margin-right: 20px;
 		}
 	}
 }

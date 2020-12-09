@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 import * as actions from "../../store/actions";
 
@@ -37,8 +38,9 @@ class LogIn extends Component {
 	state = {
 		loginForm: {
 			username: inputStateFormat("input", "text", "Username"),
-			password: inputStateFormat("input", "password", "Password"),
+			password: inputStateFormat("input", "text", "Password"),
 		},
+		wrongAuth: false,
 	};
 
 	inputChangedHandler = (event, inputIdentifier) => {
@@ -55,9 +57,19 @@ class LogIn extends Component {
 
 	loginHandler = (event) => {
 		event.preventDefault();
-		const formData = {};
-		for (let key in this.state.loginForm) {
-			formData[key] = this.state.loginForm[key].value;
+		if (
+			this.state.loginForm.username.value === "client" &&
+			this.state.loginForm.password.value === "client"
+		) {
+			this.props.logInAsUser();
+		} else if (
+			this.state.loginForm.username.value === "manager" &&
+			this.state.loginForm.password.value === "manager"
+		) {
+			this.props.logInAsManager();
+			this.props.history.push("/manage-products-list");
+		} else {
+			this.setState({ wrongAuth: true });
 		}
 	};
 
@@ -78,10 +90,17 @@ class LogIn extends Component {
 				changed={(event) => this.inputChangedHandler(event, form.id)}
 			/>
 		));
+		let wrongAuth = this.state.wrongAuth ? (
+			<p className="wrong-auth">
+				Wrong username or password. PS: Use 'client' or 'manager' as username
+				and password to login.
+			</p>
+		) : null;
 		return (
 			<Modal show={this.props.showLogin} modalClosing={this.props.hideLogin}>
 				<div className="login-container">
 					<p>Welcome</p>
+					{wrongAuth}
 					<form onSubmit={this.loginHandler}>
 						{inputElements}
 						<div className="buttons-container">
@@ -108,7 +127,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
 	return {
 		hideLogin: () => dispatch(actions.hideLogin()),
+		logInAsUser: () => dispatch(actions.logInAsUser()),
+		logInAsManager: () => dispatch(actions.logInAsManager()),
 	};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(LogIn);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(LogIn));

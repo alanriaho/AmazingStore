@@ -11,7 +11,7 @@ import "./Cart.scss";
 const Cart = (props) => {
 	let counter = 0;
 	props.cart.forEach((product) => {
-		counter += product.quantity;
+		counter += parseInt(product.quantity);
 	});
 
 	return (

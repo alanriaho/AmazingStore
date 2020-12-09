@@ -51,12 +51,14 @@ class ProductPage extends Component {
 
 	addToCartHandler = (event) => {
 		event.preventDefault();
-		this.props.addToCart({
-			name: this.state.name,
-			price: this.state.price,
-			ref: this.state.ref,
-			quantity: 1,
-		});
+		if (this.props.cart.every((product) => product.ref !== this.state.ref)) {
+			this.props.addToCart({
+				name: this.state.name,
+				price: this.state.price,
+				ref: this.state.ref,
+				quantity: 1,
+			});
+		}
 		this.props.history.push("/cart");
 	};
 
@@ -88,6 +90,7 @@ class ProductPage extends Component {
 const mapStateToProps = (state) => {
 	return {
 		store: state.store,
+		cart: state.cart,
 	};
 };
 

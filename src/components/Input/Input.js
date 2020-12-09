@@ -9,6 +9,7 @@ elementConfig (object): guards important information for the tag
 value (string): can be important information for some tags
 label (string)
 changed(function)
+blurred(function)
 */
 
 const Input = (props) => {

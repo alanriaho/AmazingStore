@@ -48,8 +48,6 @@ class ManageProductsList extends Component {
 		this.setState({ typing: false });
 	};
 
-	deleteProductHandler = (path) => {};
-
 	render() {
 		let list = null;
 		if (this.props.loading) {

@@ -16,6 +16,12 @@ export const showLogin = () => {
 export const hideLogin = () => {
 	return { type: actionTypes.HIDE_LOGIN };
 };
+export const logInAsUser = () => {
+	return { type: actionTypes.LOG_IN_AS_USER };
+};
+export const logInAsManager = () => {
+	return { type: actionTypes.LOG_IN_AS_MANAGER };
+};
 export const logOut = () => {
 	return { type: actionTypes.LOG_OUT };
 };
@@ -131,6 +137,13 @@ export const searchBuying = (quest, store) => {
 export const addToCart = (product) => {
 	return { type: actionTypes.ADD_TO_CART, product: product };
 };
-export const removeFromCart = (ref) => {
-	return { type: actionTypes.REMOVE_FROM_CART, ref: ref };
+export const removeFromCart = (index) => {
+	return { type: actionTypes.REMOVE_FROM_CART, index: index };
+};
+export const changeQuantity = (newQuantity, index) => {
+	return {
+		type: actionTypes.CHANGE_QUANTITY,
+		newQuantity: newQuantity,
+		index: index,
+	};
 };

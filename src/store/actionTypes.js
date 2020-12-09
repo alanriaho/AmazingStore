@@ -1,6 +1,8 @@
 //Auth
 export const SHOW_LOGIN = "SHOW_LOGIN";
 export const HIDE_LOGIN = "HIDE_LOGIN";
+export const LOG_IN_AS_USER = "LOG_IN_AS_USER";
+export const LOG_IN_AS_MANAGER = "LOG_IN_AS_MANAGER";
 export const LOG_OUT = "LOG_OUT";
 //UI
 export const SHOW_SEARCHBOX_ON_TOOLBAR = "SHOW_SEARCHBOX_ON_TOOLBAR";
@@ -18,3 +20,4 @@ export const SEARCH_BUYING = "SEARCH_BUYING";
 //Cart
 export const ADD_TO_CART = "ADD_TO_CART";
 export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
+export const CHANGE_QUANTITY = "CHANGE_QUANTITY";

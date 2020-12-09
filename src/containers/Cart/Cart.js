@@ -10,18 +10,25 @@ import Button from "../../components/UI/Button//Button";
 class Cart extends Component {
 	state = {};
 
+	componentDidMount() {
+		if (!this.props.store) {
+			this.props.fetchStoreFetcher();
+		}
+	}
+
 	render() {
 		let list = [];
 		let totalAmount = 0;
-		this.props.cart.forEach((product) => {
-			totalAmount += parseFloat(product.price);
+		this.props.cart.forEach((product, index) => {
+			totalAmount += parseFloat(product.price) * product.quantity;
 			list.push(
 				<ProductOnCartList
 					quantity={product.quantity}
 					name={product.name}
 					price={product.price}
 					reference={product.ref}
-					clicked={() => this.props.removeFromCart(product.ref)}
+					clicked={() => this.props.removeFromCart(index)}
+					index={index}
 					key={product.ref}
 				/>
 			);
@@ -45,7 +52,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
 	return {
-		removeFromCart: (ref) => dispatch(actions.removeFromCart(ref)),
+		fetchStoreFetcher: () => dispatch(actions.fetchStoreFetcher()),
+		removeFromCart: (index) => dispatch(actions.removeFromCart(index)),
 	};
 };
 

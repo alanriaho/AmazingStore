@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
 import "./NavigationItems.scss";
@@ -11,9 +11,14 @@ import Cart from "../Cart/Cart";
 //closeTheMenu(function)
 
 const NavigationItems = (props) => {
+	const logOutHandler = () => {
+		props.logOut();
+		props.history.push("/");
+	};
+
 	let logInOrLogOut = props.authAsUser ? (
 		<li onClick={props.closeTheMenu}>
-			<div className="link" onClick={props.logOut}>
+			<div className="link" onClick={logOutHandler}>
 				Log Out
 			</div>
 		</li>
@@ -37,16 +42,6 @@ const NavigationItems = (props) => {
 					Home
 				</NavLink>
 			</li>
-			{/* <li>
-				<NavLink
-					onClick={props.closeTheMenu}
-					className="link"
-					to="/yourorders"
-					activeClassName="active"
-				>
-					Your Orders
-				</NavLink>
-			</li> */}
 			<li>
 				<NavLink
 					onClick={props.closeTheMenu}
@@ -84,7 +79,7 @@ const NavigationItems = (props) => {
 					</NavLink>
 				</li>
 				<li onClick={props.closeTheMenu}>
-					<div className="link" onClick={props.logOut}>
+					<div className="link" onClick={logOutHandler}>
 						Log Out
 					</div>
 				</li>
@@ -112,4 +107,7 @@ const mapDispatchToProps = (dispatch) => {
 	};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(NavigationItems);
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(withRouter(NavigationItems));

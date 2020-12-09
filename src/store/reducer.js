@@ -29,6 +29,18 @@ const reducer = (state = initialState, action) => {
 				...state,
 				showLogin: false,
 			};
+		case actionTypes.LOG_IN_AS_USER:
+			return {
+				...state,
+				showLogin: false,
+				authAsUser: true,
+			};
+		case actionTypes.LOG_IN_AS_MANAGER:
+			return {
+				...state,
+				showLogin: false,
+				authAsManager: true,
+			};
 		case actionTypes.LOG_OUT:
 			return {
 				...state,
@@ -79,6 +91,7 @@ const reducer = (state = initialState, action) => {
 				...state,
 				loading: false,
 				store: action.store,
+				error: false,
 			};
 		case actionTypes.POST_NEW_PRODUCT:
 			const productsObject = state.store[action.category]
@@ -137,16 +150,18 @@ const reducer = (state = initialState, action) => {
 				cart: [...state.cart, action.product],
 			};
 		case actionTypes.REMOVE_FROM_CART:
-			const cartCopy = [...state.cart];
-			for (let productIndex of cartCopy) {
-				if (productIndex.ref === action.ref) {
-					cartCopy.splice(productIndex, 1);
-					break;
-				}
-			}
+			let cartCopy = [...state.cart];
+			cartCopy.splice(action.index, 1);
 			return {
 				...state,
 				cart: cartCopy,
+			};
+		case actionTypes.CHANGE_QUANTITY:
+			let cartStateCopy = [...state.cart];
+			cartStateCopy[action.index].quantity = action.newQuantity;
+			return {
+				...state,
+				cart: cartStateCopy,
 			};
 		default:
 			return state;

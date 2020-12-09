@@ -103,7 +103,12 @@ class SearchBox extends Component {
 					className="search-box-component-container"
 					onBlur={this.inputBlurredHandler}
 				>
-					<form className="search-box">
+					<form
+						className="search-box"
+						onSubmit={(event) => {
+							this.searchHandler(event);
+						}}
+					>
 						<Input
 							elementType={searchElement.elementType}
 							elementConfig={searchElement.elementConfig}
