@@ -1,0 +1,36 @@
+@import "../../../base";
+
+.side-drawer {
+    position: fixed;
+    width: 280px;
+    max-width: 70%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 20;
+    background-color: $secondary-color;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: transform 0.3s ease-out;
+    nav {
+        margin-top: 32px;
+    }
+    .logo-container {
+        width: 50%;
+        margin: auto;
+    }
+}
+
+.open {
+    transform: translateX(0);
+}
+
+.close {
+    transform: translateX(-200%);
+}
+
+@media (min-width: $breakpoint-1) {
+    .side-drawer {
+        display: none;
+    }
+}

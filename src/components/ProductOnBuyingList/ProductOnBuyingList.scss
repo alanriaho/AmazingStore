@@ -1,0 +1,17 @@
+.product-on-buying-list {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	color: #000000;
+	text-decoration: none;
+	width: 90%;
+	border: 1px solid #ccc;
+	box-shadow: 1px 1px 0px #ccc;
+	box-sizing: border-box;
+	h4 {
+		cursor: pointer;
+	}
+	p {
+		font-size: 0.9rem;
+	}
+}

@@ -1,0 +1,45 @@
+@import "../../../base";
+
+.nav-items {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    li {
+        padding: 10px;
+        border-top: 1px $primary-color solid;
+        box-sizing: border-box;
+        .link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    }
+}
+
+@media (min-width: $breakpoint-1) {
+    .nav-items {
+        flex-direction: row;
+        margin: 0;
+        li {
+            padding: 0;
+            margin: 0;
+            border: none;
+            .link {
+                align-items: flex-start;
+                color: #ffffff;
+                height: 60px;
+                padding: 16px;
+                box-sizing: border-box;
+            }
+            .link.active,
+            .link:active,
+            .link:hover {
+                background-color: $secondary-color;
+            }
+        }
+    }
+}

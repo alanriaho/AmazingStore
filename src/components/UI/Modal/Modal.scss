@@ -1,0 +1,30 @@
+@import "../../../base";
+
+.modal {
+	position: fixed;
+	z-index: 30;
+	background-color: white;
+	width: 80%;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	box-shadow: 1px 1px 1px black;
+	padding: 16px;
+	left: 10%;
+	top: 30%;
+	box-sizing: border-box;
+	transition: all 0.3s ease-out;
+}
+
+@media (min-width: $breakpoint-1) {
+	.modal {
+		width: 50%;
+		left: 20%;
+	}
+}
+
+@media (min-width: $breakpoint-2) {
+	.modal {
+		width: 30%;
+		left: 30%;
+	}
+}

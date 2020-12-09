@@ -1,0 +1,59 @@
+@import "../../../base";
+
+.toolbar {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 100%;
+	height: 45px;
+	background-color: $primary-color;
+	border-bottom: solid 15px $secondary-color;
+	font-size: 13px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	color: #ffffff;
+	.logo-container,
+	nav {
+		display: none;
+	}
+	.menu-button-container {
+		display: block;
+		width: 60px;
+		height: 100%;
+	}
+	.search-box-container {
+		width: 60%;
+		align-self: center;
+		margin-right: 40px;
+	}
+}
+
+@media (min-width: $breakpoint-1) {
+	.toolbar {
+		display: flex;
+		.logo-container {
+			display: block;
+			width: 13%;
+		}
+		.menu-button-container {
+			display: none;
+		}
+		nav {
+			display: flex;
+		}
+		.search-box-container {
+			width: 20%;
+			align-self: center;
+			margin: 0;
+		}
+	}
+}
+
+@media (min-width: $breakpoint-2) {
+	.toolbar {
+		.logo-container {
+			width: 9.5%;
+		}
+	}
+}

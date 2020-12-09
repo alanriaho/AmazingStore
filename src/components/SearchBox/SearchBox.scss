@@ -1,0 +1,81 @@
+@import "../../base";
+
+.search-box-component-container {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	.search-box {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: 35px;
+		border-radius: 8px;
+		border: #000000 solid 2px;
+		width: 100%;
+		background-color: #000000;
+		.input-component {
+			display: flex;
+			justify-content: center;
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			width: 87%;
+			box-sizing: border-box;
+			border-radius: inherit;
+			input {
+				height: 100%;
+				width: 100%;
+				padding: 8px;
+				box-sizing: border-box;
+				border: none;
+				outline: none;
+				border-radius: inherit;
+			}
+			label {
+				display: none;
+			}
+		}
+
+		div {
+			height: 100%;
+			width: 13%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			box-sizing: border-box;
+			border-radius: inherit;
+			cursor: pointer;
+		}
+	}
+	.results-overview-container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		position: absolute;
+		background-color: #ffffff;
+		color: #666666;
+		font-size: 0.8rem;
+		width: 52%;
+		border-radius: 5px;
+		margin: 0;
+		padding: 0;
+		li {
+			border-bottom: #dbdbdb solid 1px;
+			list-style-type: none;
+			padding: 2px 10px;
+			text-align: start;
+			cursor: pointer;
+		}
+		li:hover {
+			color: #000000;
+		}
+	}
+}
+
+@media (min-width: $breakpoint-1) {
+	.search-box-component-container {
+		.results-overview-container {
+			width: 26.2%;
+		}
+	}
+}

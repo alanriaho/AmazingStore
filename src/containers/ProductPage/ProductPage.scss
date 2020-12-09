@@ -1,0 +1,44 @@
+@import "../../base";
+
+.product-page {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin: 100px auto;
+	padding: 0 20px 20px;
+	width: 85%;
+	border: 1px solid #ccc;
+	box-shadow: 3px 3px 0px #ccc;
+	h1 {
+		align-self: center;
+	}
+	div.spans {
+		display: flex;
+		justify-content: space-between;
+		margin: 0px 0px 20px;
+		span {
+			color: #666666;
+			font-size: 0.9rem;
+		}
+	}
+	div.description {
+		border: 1px solid #ccc;
+		box-shadow: 1px 1px 0px #ccc;
+		padding: 10px;
+	}
+	div.button-container {
+		align-self: center;
+	}
+}
+
+@media (min-width: $breakpoint-1) {
+	.product-page {
+		width: 60%;
+	}
+}
+
+@media (min-width: $breakpoint-2) {
+	.product-page {
+		width: 50%;
+	}
+}

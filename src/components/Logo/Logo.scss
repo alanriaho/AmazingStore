@@ -1,0 +1,9 @@
+@import "../../base";
+
+.logo {
+    img {
+        width: 100%;
+        border-radius: 50%;
+        border: solid 2px $secondary-color;
+    }
+}

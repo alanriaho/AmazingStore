@@ -1,0 +1,32 @@
+.product-on-manage-list {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	width: 90%;
+	border: 1px solid #ccc;
+	box-shadow: 1px 1px 0px #ccc;
+	box-sizing: border-box;
+	padding: 10px;
+	> div {
+		display: flex;
+		justify-content: space-between;
+		h4 {
+			margin: 10px 0;
+		}
+	}
+
+	p {
+		font-size: 0.9rem;
+		margin: 5px 0;
+	}
+	span {
+		font-size: 0.8rem;
+		margin-top: 20px;
+		color: #ff0000;
+		width: 150px;
+	}
+	span:hover {
+		text-decoration: underline;
+		cursor: pointer;
+	}
+}

@@ -1,0 +1,29 @@
+.input-component {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+	padding: 10px;
+	box-sizing: border-box;
+	label {
+		align-self: flex-start;
+		font-weight: bold;
+		font-size: 0.8rem;
+
+		margin-bottom: 8px;
+	}
+	.input-element {
+		width: 100%;
+		outline: none;
+		border: 1px solid #ccc;
+		background-color: white;
+		font-family: inherit;
+		padding: 6px 10px;
+		box-sizing: border-box;
+		box-shadow: 0 1px 1px #ccc;
+	}
+	.input-element:focus {
+		outline: none;
+		background-color: #f1f1f1;
+	}
+}

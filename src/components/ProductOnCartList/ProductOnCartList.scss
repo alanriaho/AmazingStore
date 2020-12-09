@@ -1,0 +1,33 @@
+@import "../../base";
+.product-on-cart-list {
+	display: flex;
+	flex-direction: column;
+	width: 90%;
+	border: 1px solid #ccc;
+	box-shadow: 1px 1px 0px #ccc;
+	box-sizing: border-box;
+	font-size: 0.9rem;
+	span.delete {
+		align-self: flex-end;
+		font-size: 0.8rem;
+		color: #ffffff;
+		background-color: $secondary-color;
+		padding: 2px;
+		cursor: pointer;
+	}
+	span.delete:hover {
+		font-weight: bold;
+	}
+	> div {
+		display: flex;
+		justify-content: space-between;
+		padding: 0 15px;
+		h4 {
+			margin-top: 0;
+			font-size: 1rem;
+		}
+		.quantity-controller {
+			align-self: center;
+		}
+	}
+}

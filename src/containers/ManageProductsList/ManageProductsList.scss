@@ -1,0 +1,44 @@
+@import "../../base";
+
+@mixin flex {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.manage-product-container {
+	width: 100%;
+	@include flex();
+	form {
+		@include flex();
+		width: 85%;
+		label {
+			display: none;
+		}
+	}
+	.manage-products-list {
+		@include flex();
+		margin: 20px auto;
+		height: 70%;
+		width: 80%;
+		overflow-y: scroll;
+		flex-basis: 420px;
+	}
+}
+
+@media (min-width: $breakpoint-1) {
+	.manage-product-container {
+		form,
+		.manage-products-list {
+			width: 60%;
+		}
+	}
+}
+
+@media (min-width: $breakpoint-2) {
+	.manage-product-container {
+		form,
+		.manage-products-list {
+			width: 50%;
+		}
+	}
+}
