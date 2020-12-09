@@ -1,3 +1,24 @@
+# Amazing Store
+
+This is a React project I am currently working in. 
+
+Amazing Store simulates the behavior of an online shopping webpage with two possible profiles: as a client or as the manager of the store.
+By now there's no restricted methods depending if you are logged in or not, except for the manager, which have access to the complete list of the products in the store and they can manage it by adding and removing products. To log in as the manager use both username and password: 'manager', and to log in as a client use both username and password: 'client'.
+
+### Project URL: https://amazing-store-dcf57.web.app/
+
+## Project behaviour:
+There are two sections for the client user: Home and Cart.
+In Home you can search for products to buy. Actually you can search for them in any page but the complete list of results only appears in the Homepage.
+In the cart you can add more quantity to a product you already added to the cart, or you can completely remove one.
+
+For the manager there are also two sections: Add Products and Products List.
+In the Add Products section, the manager can add a new product with a new category or in a already created category. Try creating a new product and give it a look at the Products List.
+In the Products List, the manager can check all the products and their id references, and delete products from the database.
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
