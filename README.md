@@ -7,7 +7,7 @@ By now there's no restricted methods depending if you are logged in or not, exce
 
 ### Project URL: https://amazing-store-dcf57.web.app/
 
-## Project behaviour:
+## Project behavior:
 There are two sections for the client user: Home and Cart.
 In Home you can search for products to buy. Actually you can search for them in any page but the complete list of results only appears in the Homepage.
 In the cart you can add more quantity to a product you already added to the cart, or you can completely remove one.
