@@ -17,7 +17,10 @@ class Homepage extends Component {
 		if (window.innerWidth >= 600) {
 			this.props.hideSearchBoxOnToolbar();
 			window.addEventListener("scroll", this.searchBoxOnToolbarHandler);
+		} else if (!this.props.searchBoxOnToolbar) {
+			this.props.showSearchBoxOnToolbar();
 		}
+		window.addEventListener("resize", this.resizeHandler);
 	}
 
 	componentDidUpdate() {
@@ -31,7 +34,8 @@ class Homepage extends Component {
 	}
 
 	componentWillUnmount() {
-		window.removeEventListener("scroll", this.searchBoxOnToolbarHandler, true);
+		window.removeEventListener("scroll", this.searchBoxOnToolbarHandler);
+		window.removeEventListener("resize", this.resizeHandler);
 		this.props.showSearchBoxOnToolbar();
 	}
 
@@ -43,6 +47,14 @@ class Homepage extends Component {
 			this.props.searchBoxOnToolbar === true
 		) {
 			this.props.hideSearchBoxOnToolbar();
+		}
+	};
+
+	resizeHandler = () => {
+		if (window.innerWidth >= 600) {
+			this.props.hideSearchBoxOnToolbar();
+		} else {
+			this.props.showSearchBoxOnToolbar();
 		}
 	};
 
