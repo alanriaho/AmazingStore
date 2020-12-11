@@ -35,10 +35,10 @@
 				display: none;
 			}
 		}
-
 		div {
 			height: 100%;
 			width: 13%;
+			min-width: 20px;
 			display: flex;
 			justify-content: center;
 			align-items: center;
@@ -47,35 +47,47 @@
 			cursor: pointer;
 		}
 	}
-	.results-overview-container {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		position: absolute;
-		background-color: #ffffff;
-		color: #666666;
-		font-size: 0.8rem;
-		width: 52%;
-		border-radius: 5px;
-		margin: 0;
-		padding: 0;
-		li {
-			border-bottom: #dbdbdb solid 1px;
-			list-style-type: none;
-			padding: 2px 10px;
-			text-align: start;
-			cursor: pointer;
+	form {
+		.results-overview-container {
+			display: none;
+			flex-direction: column;
+			justify-content: center;
+			position: absolute;
+			background-color: #ffffff;
+			font-size: 0.8rem;
+			width: 52%;
+			border-radius: 5px;
+			margin: 0;
+			padding: 0;
+			a {
+				text-decoration: none;
+			}
+			li {
+				color: #666666;
+				border-bottom: #dbdbdb solid 1px;
+				list-style-type: none;
+				padding: 2px 10px;
+				text-align: start;
+				cursor: pointer;
+			}
+			li:hover {
+				color: #000000;
+			}
 		}
-		li:hover {
-			color: #000000;
+	}
+	form:focus-within {
+		.results-overview-container {
+			display: flex;
 		}
 	}
 }
 
 @media (min-width: $breakpoint-1) {
 	.search-box-component-container {
-		.results-overview-container {
-			width: 26.2%;
+		form {
+			.results-overview-container {
+				width: 26.2%;
+			}
 		}
 	}
 }

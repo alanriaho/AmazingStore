@@ -13,7 +13,6 @@ class ProductPage extends Component {
 		description: null,
 		price: null,
 		ref: null,
-		fetched: false,
 	};
 
 	componentDidMount() {
@@ -25,11 +24,13 @@ class ProductPage extends Component {
 	}
 
 	componentDidUpdate() {
-		this.renderProduct();
+		if (this.state.ref !== this.props.match.params.id) {
+			this.renderProduct();
+		}
 	}
 
 	renderProduct = () => {
-		if (this.props.store && !this.state.fetched) {
+		if (this.props.store) {
 			Object.keys(this.props.store).forEach((category) => {
 				if (this.props.store[category].products) {
 					const productsList = this.props.store[category].products;
@@ -40,7 +41,6 @@ class ProductPage extends Component {
 								description: product.description,
 								price: product.price,
 								ref: product.ref,
-								fetched: true,
 							});
 						}
 					}

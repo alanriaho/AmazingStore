@@ -24,7 +24,6 @@ class SearchBox extends Component {
 				value: "",
 			},
 		},
-		typing: false,
 	};
 
 	inputChangedHandler = (event) => {
@@ -36,14 +35,7 @@ class SearchBox extends Component {
 		};
 		updatedSearchElement.value = event.target.value;
 		updatedSearchForm.search = updatedSearchElement;
-		this.setState({ searchForm: updatedSearchForm, typing: true });
-		if (updatedSearchElement.value === "") {
-			this.setState({ typing: false });
-		}
-	};
-
-	inputBlurredHandler = () => {
-		this.setState({ typing: false });
+		this.setState({ searchForm: updatedSearchForm });
 	};
 
 	searchHandler = (event) => {
@@ -67,7 +59,7 @@ class SearchBox extends Component {
 		let resultsOverview = null;
 		if (this.props.loading) {
 			resultsOverview = "Loading...";
-		} else if (this.state.typing && this.props.store) {
+		} else if (this.props.store) {
 			resultsOverview = [];
 			Object.keys(this.props.store).forEach((category) => {
 				if (this.props.store[category].products) {
@@ -77,7 +69,7 @@ class SearchBox extends Component {
 							(product.productName + product.category)
 								.toLowerCase()
 								.includes(this.state.searchForm.search.value.toLowerCase()) &&
-							this.state.searchForm.search.value.length > 2 &&
+							this.state.searchForm.search.value.length > 1 &&
 							resultsOverview.length < 6
 						)
 							resultsOverview.push(
@@ -89,41 +81,33 @@ class SearchBox extends Component {
 				}
 			});
 		}
-		let resultOverviewContainer = null;
-		if (this.state.typing) {
-			resultOverviewContainer = (
-				<ul className="results-overview-container">{resultsOverview}</ul>
-			);
-		}
 		let searchBox = null;
 		if (!this.props.hide) {
 			const searchElement = this.state.searchForm.search;
 			searchBox = (
-				<div
-					className="search-box-component-container"
-					onBlur={this.inputBlurredHandler}
-				>
+				<div className="search-box-component-container">
 					<form
-						className="search-box"
 						onSubmit={(event) => {
 							this.searchHandler(event);
 						}}
 					>
-						<Input
-							elementType={searchElement.elementType}
-							elementConfig={searchElement.elementConfig}
-							value={searchElement.value}
-							changed={(event) => this.inputChangedHandler(event)}
-						/>
-						<div
-							onClick={(event) => {
-								this.searchHandler(event);
-							}}
-						>
-							<img src={searchIcon} alt="Search icon" />
+						<div className="search-box">
+							<Input
+								elementType={searchElement.elementType}
+								elementConfig={searchElement.elementConfig}
+								value={searchElement.value}
+								changed={(event) => this.inputChangedHandler(event)}
+							/>
+							<div
+								onClick={(event) => {
+									this.searchHandler(event);
+								}}
+							>
+								<img src={searchIcon} alt="Search icon" />
+							</div>
 						</div>
+						<ul className="results-overview-container">{resultsOverview}</ul>
 					</form>
-					{resultOverviewContainer}
 				</div>
 			);
 		}

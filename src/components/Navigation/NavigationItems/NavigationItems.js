@@ -75,7 +75,7 @@ const NavigationItems = (props) => {
 						to="/manage-products-list"
 						activeClassName="active"
 					>
-						Product's List
+						Products List
 					</NavLink>
 				</li>
 				<li onClick={props.closeTheMenu}>
