@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 import * as actions from "../../store/actions";
 import "./AddProducts.scss";
@@ -48,6 +49,9 @@ class AddProducts extends Component {
 	};
 
 	componentDidMount() {
+		if (!this.props.authAsManager) {
+			this.props.history.push("/");
+		}
 		if (!this.props.store) {
 			this.props.fetchStoreFetcher();
 		} else {
@@ -189,6 +193,7 @@ const mapStateToProps = (state) => {
 	return {
 		store: state.store,
 		error: state.error,
+		authAsManager: state.authAsManager,
 	};
 };
 
@@ -215,4 +220,7 @@ const mapDispatchToProps = (dispatch) => {
 	};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddProducts);
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(withRouter(AddProducts));

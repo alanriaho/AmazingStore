@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 
 import * as actions from "../../store/actions";
 import "./ManageProductsList.scss";
@@ -23,6 +24,9 @@ class ManageProductsList extends Component {
 	};
 
 	componentDidMount() {
+		if (!this.props.authAsManager) {
+			this.props.history.push("/");
+		}
 		if (!this.props.store) {
 			this.props.fetchStoreFetcher();
 		}
@@ -104,6 +108,7 @@ const mapStateToProps = (state) => {
 	return {
 		store: state.store,
 		loading: state.loading,
+		authAsManager: state.authAsManager,
 	};
 };
 
@@ -116,4 +121,7 @@ const mapDispatchToProps = (dispatch) => {
 	};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ManageProductsList);
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(withRouter(ManageProductsList));

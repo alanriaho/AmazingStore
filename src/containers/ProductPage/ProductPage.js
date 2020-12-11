@@ -27,6 +27,9 @@ class ProductPage extends Component {
 		if (this.state.ref !== this.props.match.params.id) {
 			this.renderProduct();
 		}
+		if (!this.state.name && this.props.store) {
+			this.setState({ name: "Oops! We can't find this product" });
+		}
 	}
 
 	renderProduct = () => {
