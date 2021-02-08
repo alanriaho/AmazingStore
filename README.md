@@ -1,7 +1,8 @@
 # Amazing Store
 
 Amazing Store simulates the behavior of an online shopping webpage with two possible profiles: as a client or as the manager of the store.
-By now there's no restricted methods depending if you are logged in or not as a client, but you have to log in as the manager to have access to the complete list of the products in the store and to be able to manage it by adding and removing products, which are stored in a real database. To log in as the manager use both username and password: 'manager', and to log in as a client use both username and password: 'client'.
+By now there's no restricted methods depending if you are logged in or not as a client, but you have to log in as the manager to have access to the complete list of the products in the store and to be able to manage it by adding and removing products, which are stored in a real database.
+#### To log in as the manager use both username and password: 'manager', and to log in as a client use both username and password: 'client'.
 
 ### Project URL: https://amazing-store-dcf57.web.app/
 
